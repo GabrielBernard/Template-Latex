@@ -1,0 +1,77 @@
+<+	+>	!comp!	!exe!
+%        File: !comp!expand("%")!comp!
+%     Created: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+% Last Change: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+%
+\documentclass[10pt, compress, titleprogressbar]{beamer}
+
+\usetheme{m}
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+\usepackage{minted}
+\usepackage{polyglossia}
+
+\usepgfplotslibrary{dateplot}
+
+\usemintedstyle{trac}
+
+\title{A modern beamer theme}
+\subtitle{}
+\date{\today}
+\author{Matthias Vogelgesang}
+\institute{Institute or miscellaneous information}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}[fragile]
+  \frametitle{mtheme}
+
+  The \emph{mtheme} is a Beamer theme with minimal visual noise inspired by the
+  \href{https://github.com/hsrmbeamertheme/hsrmbeamertheme}{\textsc{hsrm} Beamer
+  Theme} by Benjamin Weiss.
+
+  Enable the theme by loading
+
+  \begin{minted}[fontsize=\small]{latex}
+    \documentclass{beamer}
+    \usetheme{m}
+  \end{minted}
+
+  Note, that you have to have Mozilla's \emph{Fira Sans} font and XeTeX
+  installed to enjoy this wonderful typography.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Sections}
+  Sections group slides of the same topic
+
+  \begin{minted}[fontsize=\small]{latex}
+    \section{Elements}
+  \end{minted}
+
+  for which the \emph{mtheme} provides a nice progress indicator \ldots
+\end{frame}
+
+\section{Elements}
+
+\section{Conclusion}
+
+\begin{frame}{Summary}
+
+  Get the source of this theme and the demo presentation from
+
+  \begin{center}\url{github.com/matze/mtheme}\end{center}
+
+  The theme \emph{itself} is licensed under a
+  \href{http://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons
+  Attribution-ShareAlike 4.0 International License}.
+
+  \begin{center}\ccbysa\end{center}
+
+\end{frame}
+
+\plain{Questions?}
+
+\end{document}
