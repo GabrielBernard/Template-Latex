@@ -1,0 +1,215 @@
+<+  +>  !comp!  !exe!
+%        File: !comp!expand("%")!comp!
+%     Created: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+% Last Change: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+%
+\documentclass[letterpaper,12pt,oneside]{article}
+
+\usepackage{polyglossia} % Use instead of babel for xelatex and lualatex
+\usepackage{fontspec} % Use instead of fontenc for xelatex and lualatex
+\setdefaultlanguage{french} % Use tu set the language for xelatex and lualatex
+
+% Set font to use in document
+\setmainfont{Times New Roman} 
+% Exemple with custom ttf font
+% \setmainfont{IMFePIrm29P.ttf} [
+%   ItalicFont = IMFePIit29P.ttf,
+%   SmallCapsFont = IMFePIsc29P.ttf,
+%   StylisticSet=1,
+%   WordSpace = 1.2,
+%   Ligatures = Rare,
+%   Style = Historic,
+% ]
+
+\usepackage[squaren,Gray]{SIunits} %for SI units recognition
+\usepackage{numprint}
+\usepackage[left=1in, top=1in, right=1in, bottom=1in]{geometry} %To set page margins
+\usepackage{graphicx} % For figures (needs to be befor epstopdf)
+\usepackage{fancyhdr} 
+\usepackage{float} % To place figure with [H], [!ht]\dots
+\usepackage{array}
+\usepackage{csquotes}
+\usepackage{booktabs} % For better tables
+\usepackage{textcomp}
+\usepackage{amsmath} % For advance math capability
+\usepackage{amsfonts}
+\usepackage{bm} % Bold math
+\usepackage{multirow} %To use multi row in tables
+\usepackage{epstopdf} %To use .eps figure
+\usepackage{caption} % For better captions
+\usepackage{parskip} % For paragraph space
+%\usepackage{subcaption} %for subfigure
+%\usepackage{color} %pour mettre de la couleur
+%\usepackage{wrapfig} % figure funky positions
+%\usepackage{listings}
+%\usepackage[]{mcode}%code matlab en couleur il faut avoir le package dans le chemin de travail
+
+\usepackage{hyperref} % Add link to pdf (Table of Content, references, fig, tables...)
+
+% Bibliography with biber
+\usepackage[
+    backend=biber,
+    style=ieee,
+    hyperref=auto
+]{biblatex}
+
+\addbibresource{bibliographie.bib}
+
+% Figures can be in a separate directory named figures
+\graphicspath{{figures/}{../figures/}}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+% Change names some caption for french usage
+\addto\captionsfrench{\def\tablename{\textsc{Tableau}}}
+\addto\captionsfrench{\renewcommand*\abstractname{Sommaire}}
+\renewcommand{\tablename}{Tableau}
+
+\providecommand{\e}[1]{\ensuremath{\times 10^{#1}}}
+\sloppy
+\renewcommand\floatpagefraction{.9}
+\renewcommand\topfraction{.9}
+\renewcommand\bottomfraction{.9}
+\renewcommand\textfraction{.1}
+\setcounter{totalnumber}{50}
+\setcounter{topnumber}{50}
+\setcounter{bottomnumber}{50}
+\geometry{hscale=0.82,vscale=0.78}
+
+% Add an appendix and changes caption for french usage
+\usepackage[toc,page]{appendix}
+\renewcommand{\appendixtocname}{Annexes}
+\renewcommand{\appendixpagename}{Annexes}
+
+\begin{document}
+
+% CONTENU DE LA PAGE TITRE %%%%%%%%%%%%%%%%%%
+% Remplir avec les informations spécifiques
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+
+%\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+ 
+%----------------------------------------------------------------------------------------
+%   HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\textsc{\LARGE University Name}\\[1.5cm] % Name of your university/college
+\textsc{\Large Major Heading}\\%[0.5cm] % Major heading such as course name
+\textsc{\large Minor Heading}\\%[0.5cm] % Minor heading such as course title
+\vfill
+%----------------------------------------------------------------------------------------
+%   TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\HRule \\[0.4cm]
+{\huge \bfseries Title}\\[0.4cm] % Title of your document
+\HRule \\%[1.5cm]
+\vfill 
+%----------------------------------------------------------------------------------------
+%   AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Écrit par:}\\
+Gabriel \textsc{Bernard} % Your name
+\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{Présenté à:} \\
+Dr. James \textsc{Smith} % Supervisor's Name
+\end{flushright}
+\end{minipage}\\%[4cm]
+\vfill
+
+% If you don't want a supervisor, uncomment the two lines below and remove the section above
+%\Large \emph{Author:}\\
+%John \textsc{Smith}\\[3cm] % Your name
+
+%----------------------------------------------------------------------------------------
+%   DATE SECTION
+%----------------------------------------------------------------------------------------
+
+{\large \today}\\[3cm] % Date, change the \today to a set date if you want to be precise
+
+%----------------------------------------------------------------------------------------
+%   LOGO SECTION
+%----------------------------------------------------------------------------------------
+
+%\includegraphics{Logo}\\[1cm] % Include a department/university logo - this will require the graphicx package
+ 
+%----------------------------------------------------------------------------------------
+
+%\vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
+
+%Insert blanck page
+%\newpage
+%\mbox{}
+%\thispagestyle{empty}
+%\newpage
+
+%NUMÉROTER en chiffre romain les tableaux et figures
+\pagenumbering{Roman}
+\tableofcontents
+\listoffigures
+\listoftables
+
+
+%Insert blanck page
+%\newpage
+%\mbox{}
+%\thispagestyle{empty}
+\newpage
+
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+
+\setlength{\parindent}{15pt} %To set paragraphs space to 15pt
+
+\begin{abstract}
+\dots
+\end{abstract}
+
+\section{Introduction}
+\dots
+
+\section{Théorie}
+\dots
+
+\section{Méthodologie}
+\dots
+
+\section{Résultats}
+\dots
+
+\section{Discussion}
+\dots
+
+\section{Conclusion}
+\dots
+
+\pagebreak
+
+\section*{Remerciements}
+
+\pagebreak
+\setlength\bibitemsep{0.5\baselineskip} % Set spacing between bibitems
+\printbibliography
+
+\pagebreak
+\begin{appendices}
+\pagenumbering{Roman} \setcounter{page}{1}
+\begin{subappendices}
+
+\end{subappendices}
+\end{appendices}
+\end{document}
